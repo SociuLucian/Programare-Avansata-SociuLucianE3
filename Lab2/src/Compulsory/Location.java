@@ -52,10 +52,12 @@ public class Location {
 
     @Override
     public boolean equals(Object obj) {
+        boolean areEqual =false;
         if(obj==null || !(obj instanceof Location)){
-            return false;}
+            return areEqual;}
         Location other = (Location) obj;
-        return super.equals(obj);
+        areEqual=name.equals(other.name);
+        return areEqual;
     }
 
     @Override

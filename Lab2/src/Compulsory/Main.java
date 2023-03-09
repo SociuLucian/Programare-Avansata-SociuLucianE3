@@ -10,6 +10,11 @@ public class Main {
         c2.setType(Location.LocationType.CITY);
         c2.setX(0.0);
         c2.setY(0.0);
+        Location c3 = new Location("Iasi");
+        c3.setType(Location.LocationType.CITY);
+        c3.setX(0.0);
+        c3.setY(0.0);
+        System.out.println(c3);
         System.out.println(c2);
         System.out.println(c1);
         Road r1 = new Road("Dn24", Road.RoadType.EXPRESS, c1, c2);
