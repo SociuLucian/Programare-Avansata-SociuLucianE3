@@ -54,6 +54,11 @@ public class Main {
         Problem pb = new Problem();
         pb.addLocation(places[3]);
         pb.addLocation(places[0]);
+        pb.addLocation(places[1]);
+        pb.addLocation(places[2]);
+        pb.addLocation(places[4]);
+        pb.addLocation(places[5]);
+        pb.addLocation(places[6]);
         pb.addRoad(road[0]);
         pb.addRoad(road[1]);
         pb.addRoad(road[2]);
@@ -61,7 +66,7 @@ public class Main {
         pb.addRoad(road[5]);
         System.out.println(pb);
         System.out.println(pb.isValid());
-       System.out.println(pb.canReach(places[3],places[0]));
+       System.out.println(pb.canReach(places[3],places[6]));
        Algorithm alg = new DijkstraAlg(pb);
        Solution sol = alg.solve();
        System.out.println(sol);

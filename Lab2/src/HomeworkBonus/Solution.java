@@ -7,7 +7,7 @@ public class Solution {
     private List<Location> route;
 
     public Solution(List<Location> route) {
-        route = new ArrayList<>();
+        this.route=route;
     }
 
     public List<Location> getRoute() {

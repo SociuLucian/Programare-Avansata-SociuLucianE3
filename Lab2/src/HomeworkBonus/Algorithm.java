@@ -43,7 +43,7 @@ public abstract class Algorithm {
             shortestPath.add(currentLocation);
             currentLocation = previousLocations.get(currentLocation);
         }
-
+        
         Collections.reverse(shortestPath);
         Solution solution = new Solution(shortestPath);
 
