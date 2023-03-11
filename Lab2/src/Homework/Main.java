@@ -1,4 +1,4 @@
-package HomeworkBonus;
+package Homework;
 
 public class Main {
     public static void main(String args[])
@@ -20,7 +20,7 @@ public class Main {
         places[4] = new City("Pascani",25000,15000);
         places[4].setX(0.0);
         places[4].setY(0.0);
-        places[5] = new gasStation("Lukoil",7.45,20);
+        places[5] = new GasStation("Lukoil",7.45,20);
         places[5].setY(0.0);
         places[5].setX(0.0);
         places[6] = new City("Targu Frumos",30000,30000);
@@ -37,7 +37,7 @@ public class Main {
         (road[0]).setLength(150);
         (road[0]).setSpeedLimit(150);
         road[1] = new Express("E1", places[4],places[5]);
-        (road[1]).setLength(100);
+        (road[1]).setLength(30);
         (road[1]).setSpeedLimit(100);
         road[2] =new Country("C1", places[5],places[6]);
         (road[2]).setLength(50);
@@ -53,8 +53,8 @@ public class Main {
         System.out.println(road[2]);
         Problem pb = new Problem();
         pb.addLocation(places[3]);
-        pb.addLocation(places[0]);
         pb.addLocation(places[1]);
+        pb.addLocation(places[0]);
         pb.addLocation(places[2]);
         pb.addLocation(places[4]);
         pb.addLocation(places[5]);
@@ -66,10 +66,18 @@ public class Main {
         pb.addRoad(road[5]);
         System.out.println(pb);
         System.out.println(pb.isValid());
-       System.out.println(pb.canReach(places[3],places[6]));
+       System.out.println(pb.canReach(places[3],places[5]));
        Algorithm alg = new DijkstraAlg(pb);
-       Solution sol = alg.solve();
-       System.out.println(sol);
+       long StartTime = System.nanoTime();
+       Solution sol = alg.solve(places[3],places[0]);
+       long EndTime = System.nanoTime();
+       long RunTime = EndTime - StartTime;
+       long MemoryUsage = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+      System.out.println("Shortest path " + sol.getRoute());
+      System.out.println("Distance " + sol.getDistance());
+      System.out.println("Runtime " + RunTime + " Nano Seconds");
+      System.out.println("Memory used " + MemoryUsage);
+        //System.out.println(alg.solve(places[3],places[0]));
         //System.out.println(places[0].equals(places[2]));
 
     }

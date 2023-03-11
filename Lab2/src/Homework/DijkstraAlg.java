@@ -1,4 +1,4 @@
-package HomeworkBonus;
+package Homework;
 
 public class DijkstraAlg extends Algorithm {
     public DijkstraAlg(Problem pb) {

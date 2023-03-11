@@ -1,8 +1,8 @@
-package HomeworkBonus;
+package Homework;
 
-public class Express extends Road{
+public class Highway extends Road{
 
-    public Express(String name, Location a, Location b) {
+    public Highway(String name, Location a, Location b) {
         super(name, a, b);
     }
 
@@ -38,6 +38,6 @@ public class Express extends Road{
 
     @Override
     public String toString() {
-        return "Express{} " + super.toString();
+        return "Highway{} " + super.toString();
     }
 }

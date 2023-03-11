@@ -1,9 +1,9 @@
-package HomeworkBonus;
+package Homework;
 
-public class gasStation extends Location{
+public class GasStation extends Location{
     private double gasPrice;
     private int carsCapacity;
-    public gasStation(String name,double gasPrice,int carsCapacity) {
+    public GasStation(String name, double gasPrice, int carsCapacity) {
         super(name);
         this.carsCapacity = carsCapacity;
         this.gasPrice= gasPrice;

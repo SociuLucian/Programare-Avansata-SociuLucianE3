@@ -1,4 +1,4 @@
-package HomeworkBonus;
+package Homework;
 
 public class Airport extends Location {
     private int terminals;

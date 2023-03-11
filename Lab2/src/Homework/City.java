@@ -1,4 +1,4 @@
-package HomeworkBonus;
+package Homework;
 
 public class City extends Location {
     private long Population;

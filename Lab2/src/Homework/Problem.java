@@ -1,4 +1,4 @@
-package HomeworkBonus;
+package Homework;
 
 import java.util.*;
 
