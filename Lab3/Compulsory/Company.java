@@ -41,10 +41,6 @@ public class Company implements Node,Comparable<Company>{
     public void setEmployees(Map<Person, String> employees) {
         this.employees = employees;
     }
-    public void addEmployees(Person person)
-    {
-        employees.put(person, person.getName());
-    }
 
     public void setId(int id) {
         Id = id;
