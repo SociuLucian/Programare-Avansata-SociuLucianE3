@@ -1,7 +1,7 @@
 package Homework;
 import java.util.*;
 public class Network {
-    private List<Node> nodes;
+    public static List<Node> nodes;
 
     public Network() {
         this.nodes = new ArrayList<>();

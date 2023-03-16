@@ -22,7 +22,16 @@ public class Main {
         List<Node> nodes = network.getNodes();
         nodes.sort((n1, n2) -> network.computeImportance(n2) - network.computeImportance(n1));
         for (Node node : nodes) {
-            System.out.println(node + " - importance: " + network.computeImportance(node));
+            System.out.println(node.getName() + " - importance: " + network.computeImportance(node));
+        }
+        Bonus bonus =new Bonus(nodes);
+        Map<Node,Set<Node>> relations = bonus.ComputeRelations();
+        for(Node node : relations.keySet())
+        {
+            for (Node node1 : relations.get(node))
+            {
+                System.out.println(node.getName() + " " + node1.getName());
+            }
         }
     }
     }
