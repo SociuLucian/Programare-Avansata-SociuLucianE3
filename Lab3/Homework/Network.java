@@ -31,6 +31,7 @@ public class Network {
         return importance;
     }
 
+
     @Override
     public String toString() {
         return "Network{" +

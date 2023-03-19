@@ -1,6 +1,11 @@
 package Homework;
+
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Stream;
+import java.util.Comparator;
+import java.util.Map.Entry;
+
 public class Main {
     public static void main(String[] args) {
         Person Marcel = new Programmer("Marcel", LocalDate.of(1990, 6, 30), "Java", 1);
@@ -24,15 +29,17 @@ public class Main {
         for (Node node : nodes) {
             System.out.println(node.getName() + " - importance: " + network.computeImportance(node));
         }
-        Bonus bonus =new Bonus(nodes);
-        Map<Node,Set<Node>> relations = bonus.ComputeRelations();
-        for(Node node : relations.keySet())
-        {
-            for (Node node1 : relations.get(node))
-            {
+        Bonus bonus = new Bonus(network.getNodes());
+        Map<Node, Set<Node>> relations = bonus.ComputeRelations();
+        System.out.println("\n" + "Network relations : ");
+        for (Node node : relations.keySet()) {
+            for (Node node1 : relations.get(node)) {
                 System.out.println(node.getName() + " " + node1.getName());
             }
         }
+        List<String> disconnections = bonus.findArticulationPoints();
+        List<String> disconnection = bonus.findArticulationPoints();
+        System.out.println("\n" + "Nodes that are disconecting the network : " + disconnections);
     }
-    }
+}
 
