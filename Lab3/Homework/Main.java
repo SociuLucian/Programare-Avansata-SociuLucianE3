@@ -37,8 +37,7 @@ public class Main {
                 System.out.println(node.getName() + " " + node1.getName());
             }
         }
-        List<String> disconnections = bonus.findArticulationPoints();
-        List<String> disconnection = bonus.findArticulationPoints();
+        List<String> disconnections = bonus.findDisconnectingPoints();
         System.out.println("\n" + "Nodes that are disconecting the network : " + disconnections);
     }
 }

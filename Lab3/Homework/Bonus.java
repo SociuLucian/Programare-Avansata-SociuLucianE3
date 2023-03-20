@@ -34,8 +34,8 @@ public class Bonus {
         }
         return answer;
     }
-    public List<String> findArticulationPoints() {
-        List<String> articulationPoints = new ArrayList<>();
+    public List<String> findDisconnectingPoints() {
+        List<String> disconnectingPoints = new ArrayList<>();
         int n = nodes.size();
         boolean[] visited = new boolean[n];
         int[] depth = new int[n];
@@ -51,18 +51,18 @@ public class Bonus {
         // perform depth-first search from each node
         for (int i = 0; i < n; i++) {
             if (!visited[i]) {
-                dfs(i, visited, depth, low, parent, articulationPoints);
+                dfs(i, visited, depth, low, parent, disconnectingPoints);
             }
         }
 
-        return articulationPoints;
+        return disconnectingPoints;
     }
 
-    private void dfs(int u, boolean[] visited, int[] depth, int[] low, int[] parent, List<String> articulationPoints) {
+    private void dfs(int u, boolean[] visited, int[] depth, int[] low, int[] parent, List<String> disconnectingPoints) {
         visited[u] = true;
         depth[u] = low[u] = 0;
         int children = 0;
-        boolean isArticulation = false;
+        boolean isDiscon = false;
 
         for (int i = 0; i < nodes.size(); i++) {
             Node v = nodes.get(i);
@@ -70,20 +70,20 @@ public class Bonus {
             if (!visited[i] && existRelation(nodes.get(u), v)) {
                 children++;
                 parent[i] = u;
-                dfs(i, visited, depth, low, parent, articulationPoints);
+                dfs(i, visited, depth, low, parent, disconnectingPoints);
 
                 low[u] = Math.min(low[u], low[i]);
 
                 // check if u is an articulation point
                 if (parent[u] == -1 && children > 1 || parent[u] != -1 && low[i] >= depth[u]) {
-                    isArticulation = true;
+                    isDiscon = true;
                 }
             } else if (parent[u] != i) {
                 low[u] = Math.min(low[u], depth[i]);
             }
         }
-        if (isArticulation) {
-            articulationPoints.add(nodes.get(u).getName());
+        if (isDiscon) {
+            disconnectingPoints.add(nodes.get(u).getName());
         }
     }
 
