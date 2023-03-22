@@ -29,7 +29,6 @@ public class Matching {
 
     public void printProjects() {
         projects.stream()
-                .sorted()
                 .forEach(project -> System.out.println(project.getName()));
     }
 }
