@@ -11,8 +11,8 @@ public class Solver {
     public Map<Student,Set<Project>> createMatching() {
         Set<Project> availableProjects = problem.getProjects();
         availableProjects.stream().sorted();
-        /*LinkedList<Student> students =problem.getStudents();
-        students.stream().sorted();*/
+        //LinkedList<Student> students =problem.getStudents();
+        //students.stream().sorted();
         Map<Student,Set<Project>> matching = new HashMap<>();
         for(Student student : problem.getStudents())
         {
@@ -28,6 +28,7 @@ public class Solver {
                 }
             }
         }
+
 
         return matching;
     }
