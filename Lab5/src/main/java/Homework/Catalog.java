@@ -1,8 +1,11 @@
-package Compulasory;
+package Homework;
+
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Catalog implements Serializable {
     private String name;

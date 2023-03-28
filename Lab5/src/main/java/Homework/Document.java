@@ -1,19 +1,18 @@
-package Compulasory;
+package Homework;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Document implements Serializable {
     private String id;
-    private String title;
     private String location;
     private Map<String, Object> tags = new HashMap<>();
 
-    public Document(@JsonProperty("id") String id, @JsonProperty("title") String title, @JsonProperty("location") String location) {
+    public Document(@JsonProperty("id") String id, @JsonProperty("location") String location) {
         this.id=id;
-        this.title = title;
         this.location = location;
     }
 
@@ -21,9 +20,6 @@ public class Document implements Serializable {
         tags.put(key, obj);
     }
 
-    public String getTitle() {
-        return title;
-    }
 
     public String getId() {
         return id;
@@ -33,10 +29,13 @@ public class Document implements Serializable {
         this.id = id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String getLocation() {
+        return location;
     }
 
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -50,7 +49,6 @@ public class Document implements Serializable {
     public String toString() {
         return "Document{" +
                 "id='" + id + '\'' +
-                ", title='" + title + '\'' +
                 ", location='" + location + '\'' +
                 ", tags=" + tags +
                 '}';

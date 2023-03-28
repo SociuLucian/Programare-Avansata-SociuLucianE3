@@ -1,38 +1,44 @@
-package Compulasory;
+package Homework;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class CatalogUtil {
-    public CatalogUtil() {
+public class Load extends Command{
+
+
+    public Load(String name) {
+        super(name);
     }
 
-    public static void save(Catalog catalog, String path)
-            throws IOException {
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.writeValue(
-                new File(path),
-                catalog);
-    }
-    public static Catalog load(String path)
-            throws InvalidCatalogException, IOException {
+    public static Catalog execute(String path)
+            throws Load.InvalidCatalogException, IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Catalog catalog = objectMapper.readValue(
                 new File(path),
                 Catalog.class);
         return catalog;
     }
-
     public static class InvalidCatalogException extends Exception {
         public InvalidCatalogException(Exception ex) {
             super("Invalid catalog file." +
                     "", ex);
         }
+    }
 
+    @Override
+    public String getName() {
+        return super.getName();
+    }
 
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    @Override
+    public String toString() {
+        return  super.toString();
     }
 }
