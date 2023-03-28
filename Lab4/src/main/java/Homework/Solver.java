@@ -11,10 +11,10 @@ public class Solver {
     public Map<Student,Set<Project>> createMatching() {
         Set<Project> availableProjects = problem.getProjects();
         availableProjects.stream().sorted();
-        //LinkedList<Student> students =problem.getStudents();
-        //students.stream().sorted();
+        List<Student> students =problem.getStudents();
+        students.sort(Comparator.comparing(student -> student.getAdmissibleProjects().size()));
         Map<Student,Set<Project>> matching = new HashMap<>();
-        for(Student student : problem.getStudents())
+        for(Student student : students)
         {
             for(Project project : student.getAdmissibleProjects())
             {

@@ -9,7 +9,7 @@ public class Problem {
     private LinkedList<Student> students;
     private TreeSet<Project> projects;
 
-    public Problem(Set<Student> students, Set<Project> projects) {
+    public Problem(LinkedList<Student> students, Set<Project> projects) {
         this.students = new LinkedList<>(students);
         this.projects = new TreeSet<>(projects);
     }
