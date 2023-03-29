@@ -42,7 +42,6 @@ public class Main {
         System.out.println("\nSorted list of projects:");
         problem.printProjects();
         LinkedList<Student> students = problem.getStudents();
-        TreeSet<Project> projects = problem.getProjects();
         int nr_pref = 0;
         double avg;
         for(Student student : students){
@@ -59,11 +58,10 @@ public class Main {
         for(Student student : students)
         {
             g.addVertex(student.getName());
-
         }
-       for(Project project : projects)
+       for(Project project1 : problem.getProjects())
        {
-           g.addVertex(project.getName());
+           g.addVertex(project1.getName());
        }
         for(Student student: students)
         {

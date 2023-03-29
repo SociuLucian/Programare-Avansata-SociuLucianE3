@@ -9,7 +9,11 @@ public class Solver {
         this.problem=problem;
     }
     public Map<Student,Set<Project>> createMatching() {
-        Set<Project> availableProjects = problem.getProjects();
+        Set<Project> availableProjects = new HashSet<>();
+        for(Project project : problem.getProjects())
+        {
+            availableProjects.add(project);
+        }
         availableProjects.stream().sorted();
         List<Student> students =problem.getStudents();
         students.sort(Comparator.comparing(student -> student.getAdmissibleProjects().size()));
@@ -28,8 +32,6 @@ public class Solver {
                 }
             }
         }
-
-
         return matching;
     }
 }
