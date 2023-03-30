@@ -23,7 +23,8 @@ public class Report {
         String html = writer.toString();
 
         try {
-            FileWriter fileWriter = new FileWriter("template.html");
+            FileWriter fileWriter = new FileWriter("template.html" +
+                    "");
             fileWriter.write(html);
             fileWriter.close();
         } catch (IOException e) {
