@@ -8,12 +8,15 @@ public class View extends Command{
     public View(String name) {
         super(name);
     }
-    public static void execute(Document document) throws IOException {
+    public void execute(Document document) throws IOException ,View.InvalidDocumentException{
         Desktop desktop = Desktop.getDesktop();
         File file = new File(document.getLocation());
             desktop.open(file);
+            if(!file.canExecute())
+            {
+                throw new InvalidDocumentException();
+            }
         }
-
 
     @Override
     public String getName() {
@@ -30,8 +33,8 @@ public class View extends Command{
         return super.toString();
     }
     public class InvalidDocumentException extends Exception {
-        public InvalidDocumentException(Exception ex) {
-            super("Invalid document file.", ex);
+        public InvalidDocumentException() {
+            super("Invalid document file.");
         }
     }
 

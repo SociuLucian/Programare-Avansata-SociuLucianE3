@@ -23,6 +23,13 @@ public class Main {
         save.execute(catalog,"C:\\Users\\LucianPC\\Documents\\GitHub\\Programare-Avansata\\Lab5\\src\\main\\resources\\catalog.json");
         Load load = new Load("load");
         commands[1] = load;
+        try {
+            Catalog catalog1 = load.execute("C:\\Users\\LucianPC\\Documents\\GitHub\\Programare-Avansata\\Lab5\\src\\main\\resources\\catalog.json");
+        }
+        catch (Load.InvalidCatalogException exception)
+        {
+            System.out.println("Invalid file");
+        }
         Catalog catalog1 = load.execute("C:\\Users\\LucianPC\\Documents\\GitHub\\Programare-Avansata\\Lab5\\src\\main\\resources\\catalog.json");
         List list = new List("list");
         commands[2] = list;
@@ -34,6 +41,8 @@ public class Main {
         {
             System.out.println(command);
         }
+        Report reportGenerator = new Report();
+        reportGenerator.generateReport(catalog1);
 
     }
 

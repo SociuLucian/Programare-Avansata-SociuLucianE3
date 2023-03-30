@@ -92,7 +92,7 @@ public class Main {
         System.out.println(matching.getMatching().getEdges().size());
         //Minimum set
         Set<String> minimumSet = new HashSet<>();
-       
+
         System.out.println(minimumSet);
 
     }
