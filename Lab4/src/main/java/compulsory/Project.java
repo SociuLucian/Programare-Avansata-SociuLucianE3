@@ -1,5 +1,4 @@
-package Compulsory;
-import java.util.*;
+package compulsory;
 
 public class Project implements Comparable<Project>
 {

@@ -1,4 +1,4 @@
-package Homework;
+package homework;
 
 import org.jgrapht.Graph;
 import org.jgrapht.alg.interfaces.MatchingAlgorithm;

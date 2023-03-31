@@ -1,4 +1,4 @@
-package Compulsory;
+package compulsory;
 
 import java.util.*;
 

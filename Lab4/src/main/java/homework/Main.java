@@ -1,8 +1,7 @@
-package Homework;
+package homework;
 
 import org.jgrapht.*;
 import org.jgrapht.graph.*;
-import org.jgrapht.traverse.DepthFirstIterator;
 
 
 import java.util.HashSet;
@@ -56,31 +55,31 @@ public class Main {
         long endTimeGreedy = System.nanoTime();
         long runTimeGreedy = endTimeGreedy - startTimeGreedy;
         long memoryGreedy = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        //System.out.println(result);
+        System.out.println(result);
         System.out.println(result.keySet().size());
-        Graph<String, DefaultEdge> g = new SimpleGraph<>(DefaultEdge.class);
+        Graph<String, DefaultEdge> graph = new SimpleGraph<>(DefaultEdge.class);
         for (Student student : students) {
-            g.addVertex(student.getName());
+            graph.addVertex(student.getName());
         }
         for (Project project1 : problem.getProjects()) {
-            g.addVertex(project1.getName());
+            graph.addVertex(project1.getName());
         }
         for (Student student : students) {
             for (Project project : student.getAdmissibleProjects()) {
-                g.addEdge(student.getName(), project.getName());
+                graph.addEdge(student.getName(), project.getName());
             }
         }
-        /*Iterator<String> iter = new DepthFirstIterator<>(g);
+        /*Iterator<String> iter = new DepthFirstIterator<>(graph);
         while (iter.hasNext()) {
             String vertex = iter.next();
             System.out
                     .println(
                             "Vertex " + vertex + " is connected to: "
-                                    + g.edgesOf(vertex).toString());
+                                    + graph.edgesOf(vertex).toString());
         }*/
         Bonus matching = new Bonus();
         long startTimeEdmonds = System.nanoTime();
-        matching.edmondsKarp(g);
+        matching.edmondsKarp(graph);
         long endTimeEdmonds = System.nanoTime();
         long runTimeEdmonds = endTimeEdmonds - startTimeEdmonds;
         long memoryEdmonds = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
