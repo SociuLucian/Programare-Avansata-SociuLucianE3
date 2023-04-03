@@ -23,19 +23,13 @@ public class Document implements Serializable {
         this.id=id;
         this.location = location;
     }
-    public Metadata extractMetadata() {
-        Metadata metadata = new Metadata();
-        try (FileInputStream inputStream = new FileInputStream(location)) {
-            Parser parser = new AutoDetectParser();
-            BodyContentHandler handler = new BodyContentHandler();
-            ParseContext context = new ParseContext();
-            parser.parse(inputStream, handler, metadata,context);
-        } catch (IOException e) {
-            System.err.println("Error extracting metadata: " + e.getMessage());
-        } catch (Exception e) {
-            System.err.println("Error parsing file: " + e.getMessage());
-        }
-        return metadata;
+
+    public Map<String, String> getTags() {
+        return tags;
+    }
+
+    public void setTags(Map<String, String> tags) {
+        this.tags = tags;
     }
 
     public void addTag(String key, String tag) {
