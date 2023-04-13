@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="mainDialog" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.javalab.lab6.PositionalGameController">
+    <ButtonBar  maxHeight="-Infinity" maxWidth="-Infinity"  nodeOrientation="LEFT_TO_RIGHT" prefHeight="58.0" prefWidth="1026.0" style="-fx-background-color: orange;">
+        <buttons>
+            <Label alignment="TOP_LEFT" text="Number of dots: " />
+            <Spinner fx:id="numberOfDotsSpinner" nodeOrientation="LEFT_TO_RIGHT" />
+            <Label alignment="TOP_CENTER" centerShape="false" scaleShape="false" text="Line Probability:" />
+            <ComboBox fx:id="lineProbabilityCombo" prefWidth="150.0" promptText="1.0" />
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#CreateGameButton" text="Create new game" />
+            <VBox prefHeight="5.0" prefWidth="100.0">
+                <TextArea fx:id="redPlayerName" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" promptText="Red Player" text="Red Player" />
+                <TextArea fx:id="bluePlayerName" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" promptText="Red Player" text="Blue Player" />
+            </VBox>
+        </buttons>
+    </ButtonBar>
+    <Group fx:id="canvasGroupRoot">
+        <Canvas fx:id="canvasPaneId" height="619.0" layoutY="59.0" nodeOrientation="INHERIT" width="1020.0" />
+    </Group>
+    <ButtonBar buttonOrder="U+L_HE+FBIX_NCYOA_R"  layoutX="-6.0" layoutY="717.0" maxHeight="120.0" maxWidth="1252.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="51.0" prefWidth="1032.0" style="-fx-background-color: orange;">
+
+        <buttons>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#LoadButton" text="Load" />
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#SaveButton" text="Save" />
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#ResetButton" text="Reset" />
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#ExitButton" text="Exit" />
+         <Button mnemonicParsing="false" text="Export PNG" onMouseClicked="#ExportPNG"/>
+        </buttons>
+    </ButtonBar>
+   <ButtonBar layoutX="1.0" layoutY="678.0">
+      <buttons>
+         <Label prefHeight="21.0" prefWidth="131.0" text="Player to Move: " />
+         <TextArea fx:id="playerToMoveName" editable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" />
+      </buttons>
+   </ButtonBar>
+</AnchorPane>
