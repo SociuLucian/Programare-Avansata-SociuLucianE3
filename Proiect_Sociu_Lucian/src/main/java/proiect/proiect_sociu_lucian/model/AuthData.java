@@ -1,6 +1,7 @@
 package proiect.proiect_sociu_lucian.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class AuthData implements Serializable {
     private String username;
@@ -31,9 +32,18 @@ public class AuthData implements Serializable {
         this.username = username;
     }
 
+
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AuthData)) return false;
+        AuthData authData = (AuthData) o;
+        return Objects.equals(username, authData.username) && Objects.equals(password, authData.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, password);
     }
 
     @Override

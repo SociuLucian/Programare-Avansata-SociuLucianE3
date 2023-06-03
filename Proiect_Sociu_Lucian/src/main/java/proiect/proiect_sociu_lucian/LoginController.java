@@ -1,5 +1,6 @@
 package proiect.proiect_sociu_lucian;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +23,8 @@ import javafx.stage.Stage;
 import proiect.proiect_sociu_lucian.model.AuthData;
 
 public class LoginController {
-
+    public File myFile = new File("authData.json");
+    private List<AuthData> encryptedUsers= new ArrayList<>();
     public Button createAccountButton;
     @FXML
     private TextField usernameField;
@@ -59,9 +63,10 @@ public class LoginController {
 
     private boolean checkCredentials(String username, String hashedPassword) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        AuthData authData = objectMapper.readValue(new File("authData.json"), AuthData.class);
-
-        return username.equals(authData.getUsername()) && hashedPassword.equals(authData.getPassword());
+        encryptedUsers = objectMapper.readValue(myFile, new TypeReference<List<AuthData>>() {});
+        AuthData authData = new AuthData(username,hashedPassword);
+        System.out.println(hashedPassword);
+        return encryptedUsers.contains(authData);
     }
 
     private String hashPassword(String password) throws NoSuchAlgorithmException {
@@ -97,8 +102,6 @@ public class LoginController {
             stage.setScene(scene);
             stage.show();
 
-            // Închide fereastra de autentificare
-            loginButton.getScene().getWindow().hide();
 
         } catch (Exception e) {
             e.printStackTrace();
