@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="proiect.proiect_sociu_lucian.CodeCheck"
+      spacing="10"
+      alignment="center">
+
+    <Label fx:id="titleLabel" text="Introduceti Codul" />
+    <TextField fx:id="codeBox" promptText="Codul corespunzator votului!"/>
+    <Button fx:id="checkCode" text="Valideaza!" />
+    <Button fx:id="homeButton" text="Home"/>
+
+</VBox>

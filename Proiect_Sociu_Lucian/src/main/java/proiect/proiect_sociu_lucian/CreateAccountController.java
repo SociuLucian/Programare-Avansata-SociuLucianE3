@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreateAccountController {
-    public File myFile = new File("authData.json");
+    public File myFile = new File("src/main/resources/authData.json");
     private List<AuthData> encryptedUsers = new ArrayList<>();
 
     @FXML
@@ -110,10 +110,18 @@ public class CreateAccountController {
     }
 
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+        if (message == "Error") {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle(title);
+            alert.setHeaderText(null);
+            alert.setContentText(message);
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle(title);
+            alert.setHeaderText(null);
+            alert.setContentText(message);
+            alert.showAndWait();
+        }
     }
 }

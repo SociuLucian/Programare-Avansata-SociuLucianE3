@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.geometry.Insets;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,15 +14,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import javafx.stage.Stage;
 import proiect.proiect_sociu_lucian.model.AuthData;
+import proiect.proiect_sociu_lucian.model.Creator;
 
 public class LoginController {
-    public File myFile = new File("authData.json");
+    public File myFile = new File("src/main/resources/authData.json");
     private List<AuthData> encryptedUsers= new ArrayList<>();
     public Button createAccountButton;
     @FXML
@@ -44,7 +42,18 @@ public class LoginController {
             // Verificare utilizator și parolă
             try {
                 if (checkCredentials(username, hashPassword(password))) {
-                    //showCreateAccountPage();
+                    Creator.creator=username;
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("WelcomeController.fxml"));
+                        Scene scene = new Scene(root, 500, 500);
+                        Stage stage = new Stage();
+                        stage.setTitle("Welcome!");
+                        stage.setScene(scene);
+                        stage.show();
+                        loginButton.getScene().getWindow().hide();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 } else {
                     showAlert("Autentificare eșuată", "Verifică utilizatorul și parola.");
                 }

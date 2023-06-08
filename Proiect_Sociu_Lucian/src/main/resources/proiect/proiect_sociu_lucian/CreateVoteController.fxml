@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="proiect.proiect_sociu_lucian.CreateVoteController"
+          hgap="10"
+          vgap="10"
+          alignment="center">
+
+    <VBox spacing="10" alignment="center">
+        <Label text="Creare vot" />
+        <TextArea promptText="
+        Codul votului : " fx:id="voteCodeLabel" prefHeight="5" prefWidth="100"/>
+
+        <HBox spacing="10" alignment="center">
+            <TextField fx:id="candidateField" promptText="Nume candidat" />
+            <Button fx:id="addCandidateButton" text="Adaugare candidat"  />
+        </HBox>
+
+        <VBox spacing="5" alignment="center" fx:id="candidateListLabel">
+            <Label text="Candidati:" />
+        </VBox>
+
+        <TextField fx:id="timeLimitField" promptText="Timp limita (min)" />
+        <TextField fx:id="maxUsersField" promptText="Numar maxim de utilizatori" />
+        <TextField fx:id="topic" promptText="Ce topic ar trebui sa aiba sectiunea de vot?"/>
+
+        <Button fx:id="createVoteButton" text="Creare vot"  />
+        <Button fx:id="home" text="Home"/>
+    </VBox>
+
+</GridPane>
