@@ -51,10 +51,8 @@ public class YourPolls {
         nrVoturi.setCellValueFactory(new PropertyValueFactory<>("nrVoturi"));
         nrTotalVoturi.setCellValueFactory(new PropertyValueFactory<>("nrTotalVoturi"));
         winner.setCellValueFactory(new PropertyValueFactory<>("winner"));
-        String query = "SELECT c.nume_candidat, v.topic, nr_voturi ,sum(nr_voturi) as total_voturi  FROM candidati c JOIN voturi v ON c.id_vot = v.id where creator = ? " +
-                "GROUP BY c.nume_candidat, v.topic, nr_voturi " +
-                "ORDER BY nr_voturi DESC " +
-                "LIMIT 1";
+        String query = "SELECT c.nume_candidat, v.topic, nr_voturi ,sum(nr_voturi) as total_voturi  FROM candidati c JOIN voturi v ON c.id_vot = v.id  where c.cod_unic=v.cod_unic and creator = ? " +
+                "                GROUP BY c.nume_candidat, v.topic, nr_voturi,c.cod_unic ORDER BY nr_voturi DESC limit 1";
         List<VoteView> voteViews = new ArrayList<>();
         try(Connection connection = DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
             PreparedStatement statement = connection.prepareStatement(query)){

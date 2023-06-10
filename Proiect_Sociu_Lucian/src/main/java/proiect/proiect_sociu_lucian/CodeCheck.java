@@ -106,8 +106,8 @@ public class CodeCheck {
             alert.showAndWait();
         }
     }
-    public void setVoteController(VoteController voteController) {
-        this.voteController = voteController;
-    }
+   // public void setVoteController(VoteController voteController) {
+      //  this.voteController = voteController;
+    //}
 }
 
